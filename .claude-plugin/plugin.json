@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew"
+    "url": "https://github.com/fred1357944/vibecodingwebsitenew"
   },
   "license": "MIT",
   "keywords": [
@@ -29,9 +29,9 @@
       "description": "Automatic version compatibility and troubleshooting for React Three Fiber projects"
     }
   ],
-  "homepage": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew",
+  "homepage": "https://github.com/fred1357944/vibecodingwebsitenew",
   "bugs": {
-    "url": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew/issues"
+    "url": "https://github.com/fred1357944/vibecodingwebsitenew/issues"
   },
   "engines": {
     "claude-code": ">=1.0.0"
