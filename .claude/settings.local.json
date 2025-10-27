@@ -16,7 +16,11 @@
       "Bash(git add:*)",
       "Bash(git commit:*)",
       "Bash(bash:*)",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(git push:*)",
+      "Bash(claude plugin marketplace list)",
+      "Bash(claude marketplace list:*)",
+      "Bash(claude plugin:*)"
     ],
     "deny": [],
     "ask": []
