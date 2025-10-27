@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "react-three-toolkit",
-      "source": ".",
+      "source": "./",
       "description": "Expert tools for React + Three.js development. Prevents version conflicts, provides troubleshooting, and includes working templates.",
       "version": "1.0.0",
       "author": {
