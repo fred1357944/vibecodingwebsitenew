@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Debug Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        .test { background: #4CAF50; color: white; padding: 20px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Debug 測試頁面</h1>
+    <div class="test">✓ 如果你看到這個綠色區塊，HTML 運作正常</div>
+
+    <h2>診斷步驟：</h2>
+    <ol>
+        <li><strong>硬重整瀏覽器</strong>
+            <ul>
+                <li>Windows/Linux: Ctrl + Shift + R</li>
+                <li>Mac: Cmd + Shift + R</li>
+            </ul>
+        </li>
+        <li><strong>打開開發者工具</strong> (F12 或 右鍵 → 檢查)</li>
+        <li><strong>查看 Console 標籤</strong> - 是否有紅色錯誤？</li>
+        <li><strong>查看 Network 標籤</strong> - 是否所有檔案都是 200 (綠色)?</li>
+    </ol>
+
+    <h2>回到主應用：</h2>
+    <p><a href="/" style="color: blue; text-decoration: underline;">點擊這裡回到 http://localhost:3000</a></p>
+
+    <h2>手動檢查清單：</h2>
+    <div id="checks"></div>
+
+    <script>
+        const checks = [
+            { name: '瀏覽器支援', test: () => !!document.getElementById },
+            { name: 'JavaScript 運作', test: () => true },
+            { name: 'Fetch API', test: () => !!window.fetch },
+            { name: 'ES6 支援', test: () => { try { eval('const x = 1'); return true; } catch(e) { return false; } } }
+        ];
+
+        let html = '<ul>';
+        checks.forEach(check => {
+            const result = check.test();
+            const icon = result ? '✓' : '✗';
+            const color = result ? 'green' : 'red';
+            html += `<li style="color: ${color}">${icon} ${check.name}</li>`;
+        });
+        html += '</ul>';
+
+        document.getElementById('checks').innerHTML = html;
+
+        // 測試 fetch
+        fetch('/')
+            .then(r => r.text())
+            .then(html => {
+                console.log('✓ Main page loads OK');
+                console.log('HTML length:', html.length);
+            })
+            .catch(e => console.error('✗ Fetch error:', e));
+    </script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+{
+  "compatibilityMatrix": {
+    "react18": {
+      "react": "^18.3.1",
+      "react-dom": "^18.3.1",
+      "@react-three/fiber": "~8.17.0",
+      "@react-three/drei": "~9.114.0",
+      "three": "^0.169.0",
+      "tailwindcss": "^3.4.18",
+      "status": "stable",
+      "recommended": true
+    },
+    "react19": {
+      "react": "^19.0.0",
+      "react-dom": "^19.0.0",
+      "@react-three/fiber": "^9.0.0",
+      "@react-three/drei": "^10.0.0",
+      "three": "^0.170.0",
+      "tailwindcss": "^4.0.0",
+      "status": "experimental",
+      "recommended": false
+    }
+  },
+  "knownIssues": [
+    {
+      "error": "Cannot read properties of undefined (reading 'S')",
+      "cause": "React Three Fiber v9+ with React 18",
+      "solution": "Downgrade to @react-three/fiber@~8.17.0",
+      "severity": "critical",
+      "timeToFix": "15min"
+    },
+    {
+      "error": "Module not found: three/examples/jsm/loaders/GLTFLoader",
+      "cause": "Three.js r150+ changed path structure",
+      "solution": "Use three/addons/loaders/GLTFLoader.js",
+      "severity": "medium",
+      "timeToFix": "5min"
+    },
+    {
+      "error": "[postcss] It looks like you're trying to use tailwindcss directly",
+      "cause": "Tailwind v4 requires @tailwindcss/postcss plugin",
+      "solution": "Downgrade to tailwindcss@^3.4.0",
+      "severity": "medium",
+      "timeToFix": "10min"
+    },
+    {
+      "error": "Blank page with working dev server",
+      "cause": "Browser cache holding old JavaScript",
+      "solution": "Hard refresh (Ctrl+Shift+R) or clear Vite cache",
+      "severity": "minor",
+      "timeToFix": "2min"
+    }
+  ],
+  "installSequence": [
+    {
+      "step": 1,
+      "command": "npm install react@18 react-dom@18",
+      "description": "Base React packages"
+    },
+    {
+      "step": 2,
+      "command": "npm install three@~0.169.0 @react-three/fiber@~8.17.0 @react-three/drei@~9.114.0",
+      "description": "Three.js ecosystem (use --legacy-peer-deps if needed)"
+    },
+    {
+      "step": 3,
+      "command": "npm install -D tailwindcss@^3.4.0 postcss autoprefixer",
+      "description": "Tailwind CSS v3"
+    },
+    {
+      "step": 4,
+      "command": "npx tailwindcss init -p",
+      "description": "Initialize Tailwind config"
+    }
+  ],
+  "importPaths": {
+    "GLTFLoader": {
+      "old": "three/examples/jsm/loaders/GLTFLoader",
+      "new": "three/addons/loaders/GLTFLoader.js",
+      "changedIn": "three@0.150.0"
+    },
+    "OrbitControls": {
+      "old": "three/examples/jsm/controls/OrbitControls",
+      "new": "three/addons/controls/OrbitControls.js",
+      "changedIn": "three@0.150.0"
+    },
+    "DRACOLoader": {
+      "old": "three/examples/jsm/loaders/DRACOLoader",
+      "new": "three/addons/loaders/DRACOLoader.js",
+      "changedIn": "three@0.150.0"
+    }
+  },
+  "versionRanges": {
+    "caret": {
+      "symbol": "^",
+      "meaning": "Compatible with version (allows minor and patch updates)",
+      "example": "^1.2.3 allows 1.x.x (but not 2.0.0)",
+      "risk": "medium - may introduce breaking changes"
+    },
+    "tilde": {
+      "symbol": "~",
+      "meaning": "Approximately equivalent (allows patch updates only)",
+      "example": "~1.2.3 allows 1.2.x (but not 1.3.0)",
+      "risk": "low - safer for critical packages"
+    },
+    "exact": {
+      "symbol": "",
+      "meaning": "Exact version only",
+      "example": "1.2.3 allows only 1.2.3",
+      "risk": "none - most stable"
+    }
+  },
+  "debuggingTimeline": {
+    "totalTime": "72 minutes",
+    "breakdown": [
+      {"issue": "Tailwind v4 config", "time": "20min"},
+      {"issue": "GLTFLoader path", "time": "15min"},
+      {"issue": "R3F version mismatch", "time": "30min"},
+      {"issue": "Browser cache", "time": "7min"}
+    ]
+  }
+}

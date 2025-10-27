@@ -1,0 +1,21 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git init:*)",
+      "Bash(npm create:*)",
+      "Bash(npm install)",
+      "Bash(npm install:*)",
+      "Bash(npx tailwindcss init:*)",
+      "Bash(tree:*)",
+      "Bash(npm run dev)",
+      "Bash(pkill:*)",
+      "Bash(curl:*)",
+      "Bash(npm uninstall:*)",
+      "WebFetch(domain:www.anthropic.com)",
+      "Bash(chmod:*)",
+      "Bash(git add:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
