@@ -1,0 +1,15 @@
+# Files to exclude from skill package
+
+# Documentation (keep only essential)
+# README.md is kept for marketplace
+
+# Testing
+test/
+*.test.js
+
+# Development
+.DS_Store
+*.swp
+*.swo
+
+# Keep all templates and core files

@@ -1,0 +1,39 @@
+{
+  "name": "react-three-toolkit",
+  "displayName": "React Three.js Toolkit",
+  "version": "1.0.0",
+  "description": "Expert tools and knowledge for React + Three.js development. Prevents version conflicts, provides troubleshooting, and includes working templates.",
+  "author": {
+    "name": "VibeCoding",
+    "email": "fred1357944@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew"
+  },
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "three.js",
+    "react-three-fiber",
+    "3d",
+    "webgl",
+    "tailwind",
+    "vite",
+    "troubleshooting"
+  ],
+  "skills": [
+    {
+      "name": "react-three-setup",
+      "path": "skills/react-three-setup",
+      "description": "Automatic version compatibility and troubleshooting for React Three Fiber projects"
+    }
+  ],
+  "homepage": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew",
+  "bugs": {
+    "url": "https://github.com/YOUR_USERNAME/vibecodingwebsitenew/issues"
+  },
+  "engines": {
+    "claude-code": ">=1.0.0"
+  }
+}
