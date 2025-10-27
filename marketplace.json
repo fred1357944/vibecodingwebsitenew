@@ -1,0 +1,33 @@
+{
+  "name": "vibecoding-marketplace",
+  "displayName": "VibeCoding Marketplace",
+  "description": "React Three.js and 3D web development tools",
+  "owner": {
+    "name": "VibeCoding",
+    "email": "fred1357944@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "react-three-toolkit",
+      "source": ".",
+      "description": "Expert tools for React + Three.js development. Prevents version conflicts, provides troubleshooting, and includes working templates.",
+      "version": "1.0.0",
+      "author": {
+        "name": "VibeCoding",
+        "email": "fred1357944@gmail.com"
+      },
+      "keywords": [
+        "react",
+        "three.js",
+        "react-three-fiber",
+        "3d",
+        "webgl",
+        "troubleshooting"
+      ]
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fred1357944/vibecodingwebsitenew"
+  }
+}
