@@ -50,32 +50,65 @@ https://github.com/fred1357944/vibecodingwebsitenew
 
 ## 📦 安裝 Plugin（Repo Public 後）
 
-### 方法 1：直接從 GitHub 安裝
+### ⚠️ 重要：必須先添加 Marketplace！
 
-在終端運行：
+Claude Code 使用 marketplace 系統管理 plugins。
 
-```bash
-claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
-```
+### 步驟 1：添加 Marketplace
 
-或者使用 SSH URL（如果你有 SSH key）：
+在 Claude Code 對話中運行：
 
 ```bash
-claude plugin install git@github.com:fred1357944/vibecodingwebsitenew.git
+/plugin marketplace add fred1357944/vibecodingwebsitenew
 ```
 
-### 方法 2：本地安裝（開發測試用）
+或使用命令行：
+
+```bash
+claude plugin marketplace add fred1357944/vibecodingwebsitenew
+```
+
+### 步驟 2：安裝 Plugin
+
+添加 marketplace 後，安裝 plugin：
+
+```bash
+/plugin install react-three-toolkit@vibecoding-marketplace
+```
+
+或使用命令行：
+
+```bash
+claude plugin install react-three-toolkit@vibecoding-marketplace
+```
+
+### 方法 2：本地測試（開發用）
 
 ```bash
 cd /Users/laihongyi/Downloads/vibecodingwebsitenew
-claude plugin install .
+claude plugin marketplace add ./
+claude plugin install react-three-toolkit@vibecoding-marketplace
 ```
 
 ---
 
 ## ✅ 驗證安裝
 
-### 查看已安裝的 Plugins
+### 步驟 1：查看 Marketplaces
+
+```bash
+claude plugin marketplace list
+```
+
+應該看到：
+
+```
+vibecoding-marketplace (fred1357944/vibecodingwebsitenew)
+  Plugins:
+  - react-three-toolkit (1.0.0)
+```
+
+### 步驟 2：查看已安裝的 Plugins
 
 ```bash
 claude plugin list
@@ -84,7 +117,7 @@ claude plugin list
 應該看到：
 
 ```
-react-three-toolkit (1.0.0)
+react-three-toolkit (1.0.0) [@vibecoding-marketplace]
   Skills:
   - react-three-setup
 ```
@@ -106,21 +139,27 @@ Claude 應該會自動使用 `react-three-setup` skill，並使用正確的版�
 
 ## 🔍 故障排除
 
-### 問題 1：找不到 Plugin
+### 問題 1：找不到 Marketplace
 
 **症狀：**
 ```bash
-claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
-Error: Repository not found or not accessible
+claude plugin install react-three-toolkit@vibecoding-marketplace
+Error: Plugin not found in any configured marketplace
 ```
 
 **原因：**
-- Repo 還是 private
-- 或者 URL 錯誤
+- 忘記先添加 marketplace
+- 或者 repo 是 private
 
 **解決：**
 ```bash
-# 驗證 repo 可訪問
+# 1. 檢查已配置的 marketplaces
+claude plugin marketplace list
+
+# 2. 如果沒有，先添加
+claude plugin marketplace add fred1357944/vibecodingwebsitenew
+
+# 3. 驗證 repo 可訪問（如果是 private 會失敗）
 curl -I https://github.com/fred1357944/vibecodingwebsitenew
 
 # 應該返回 200，不是 404
@@ -170,10 +209,21 @@ claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
 
 ### 團隊成員安裝
 
-設置 repo 為 public 後，團隊成員可以直接安裝：
+設置 repo 為 public 後，團隊成員執行兩個步驟：
 
 ```bash
-claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
+# 步驟 1：添加 marketplace
+claude plugin marketplace add fred1357944/vibecodingwebsitenew
+
+# 步驟 2：安裝 plugin
+claude plugin install react-three-toolkit@vibecoding-marketplace
+```
+
+或者使用 Claude Code 對話：
+
+```
+/plugin marketplace add fred1357944/vibecodingwebsitenew
+/plugin install react-three-toolkit@vibecoding-marketplace
 ```
 
 ### 企業內部（Private Repo）
@@ -197,16 +247,22 @@ claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
    ↓
 2. 驗證 Repo 可訪問（瀏覽器打開）
    ↓
-3. 運行安裝命令
-   claude plugin install https://github.com/fred1357944/vibecodingwebsitenew
+3. 添加 Marketplace
+   claude plugin marketplace add fred1357944/vibecodingwebsitenew
    ↓
-4. 驗證安裝
+4. 驗證 Marketplace
+   claude plugin marketplace list
+   ↓
+5. 安裝 Plugin
+   claude plugin install react-three-toolkit@vibecoding-marketplace
+   ↓
+6. 驗證安裝
    claude plugin list
    ↓
-5. 測試 Skill
+7. 測試 Skill
    在對話中提到 "React Three.js"
    ↓
-6. 確認自動啟動
+8. 確認自動啟動
    Claude 應該使用正確的版本
 ```
 
